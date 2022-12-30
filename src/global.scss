@@ -1,0 +1,38 @@
+
+// color
+:root{
+    //light mode color
+    --background: hsl(0, 0%, 98%);
+    --bg-element: hsl(0, 0%, 100%);
+    --text: hsl(207, 26%, 17%);
+    --input-text: hsl(0, 0%, 52%);
+    //common
+    --shadow: hsl(207, 26%, 17%);
+}
+ 
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--text);
+    background-color: var(--background);
+    button, input{
+        cursor: pointer;
+        font-family: 'Nunito Sans', sans-serif;
+        border: none;
+        background-color: transparent;
+        -webkit-tap-highlight-color: transparent;
+        color:var(--text);
+    }
+    a{
+        text-decoration: none;
+        color: var(--text);
+    }
+}
+
+
+

@@ -1,0 +1,21 @@
+
+.main_wrapper{
+    padding: 50px 20px ;
+    margin-top: 80px;
+    font-size: 16px;
+    .details_wrapper{
+        margin-top: 80px;
+        width:100%;
+    }
+}
+
+@media screen and (min-width:768px){
+    .main_wrapper{
+        padding: 80px;
+        .details_wrapper{
+            display: inline-flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+
+.list_wrapper{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px,1fr));
+    gap:30px;
+    padding: 0 30px;
+}
+@media screen and (max-width:300px){
+    .list_wrapper{
+        padding: 0;
+    }
+}
+@media screen and (min-width:992px){
+    .list_wrapper{
+        margin-top: 60px;
+        grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+        padding: 0;
+        gap: 60px;
+    }
+}
