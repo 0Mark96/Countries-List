@@ -6,24 +6,24 @@ import { RouterProvider, createBrowserRouter, createRoutesFromElements } from 'r
 import { getAllCountries, getCountry } from './clientAPI';
 //pages
 import Layout from "./Pages/Layout";
-import Home from './Pages/Home';
-import Details from './Pages/Details';
+import CountriesPage from './Pages/CountriesPage';
+import CountryPage from './Pages/CountryPage';
 import ErrorPage from './Pages/ErrorPage';
 	
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>
       <Route index 
-             element={<Home />} 
+             element={<CountriesPage />} 
              loader={getAllCountries}
       />
       <Route path='/countries'
-             element={<Home/>} 
+             element={<CountriesPage/>} 
              loader={getAllCountries}
       />
       <Route path="countries/:name" 
-             errorElement={<ErrorPage />}
-             element={<Details />} 
+             errorElement={<ErrorPage object={'Country'}/>}
+             element={<CountryPage />} 
              loader={getCountry}
       />
       <Route path="*" element={<ErrorPage />} />

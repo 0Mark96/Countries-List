@@ -1,13 +1,14 @@
+@import './features/variable';
 
 // color
 :root{
     //light mode color
-    --background: hsl(0, 0%, 98%);
-    --bg-element: hsl(0, 0%, 100%);
-    --text: hsl(207, 26%, 17%);
-    --input-text: hsl(0, 0%, 52%);
+    --background: #{$whiteDark};
+    --bg-element: #{$white};
+    --text: #{$darkBlue};
+    --text-input: #{$gray};
     //common
-    --shadow: hsl(207, 26%, 17%);
+    --shadow: #{$darkBlue};
 }
  
 *{
@@ -31,8 +32,17 @@ body{
     a{
         text-decoration: none;
         color: var(--text);
+        -webkit-tap-highlight-color: transparent;
+    }
+    .App{
+        max-width: 2000px;
+        margin: 0 auto;
     }
 }
 
 
-
+@mixin hover-button {
+    color: var(--bg-element);
+    background-color: var(--text);
+    transition: all .3s linear;
+}

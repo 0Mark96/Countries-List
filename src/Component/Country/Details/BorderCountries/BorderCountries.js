@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 
 const BorderCountries = ({data}) => {
-    const {borderCountries_wrapper,list,title} = style
+    const {borderCountries_wrapper,list,title,country_name} = style
    
     const [borderCountries,setBorderCountries] = useState([]) //list (name,code)
     
@@ -32,8 +32,8 @@ const BorderCountries = ({data}) => {
                 { 
                 borderCountries?.length > 0 &&
                     borderCountries?.map(country => {
-                    return  <li key={country?.code}>
-                              <Link to={`/countries/${country?.code}`}>{country?.name}</Link>
+                    return  <li key={country.code}>
+                              <Link to={`/countries/${country.code}`} className={country_name}>{country.name}</Link>
                             </li>
                     }) 
                 }                

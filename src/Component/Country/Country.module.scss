@@ -11,11 +11,21 @@
 
 @media screen and (min-width:768px){
     .main_wrapper{
-        padding: 80px;
+        padding: 60px;
         .details_wrapper{
-            display: inline-flex;
+            display: flex;
+            flex-direction: row-reverse;
             justify-content: space-between;
             align-items: center;
         }
+    }
+}
+
+@media screen and (min-width:1200px){
+   .main_wrapper {
+        padding: 80px;
+       .details_wrapper{
+          flex-direction: row;
+       }
     }
 }

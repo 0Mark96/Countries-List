@@ -1,0 +1,10 @@
+@mixin hover-InvertColor {
+        color: var(--bg-element);
+        background-color: var(--text);
+        transition: all .3s linear;
+}
+
+@mixin element-radius-and-shadow {
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px -10px var(--shadow);
+}

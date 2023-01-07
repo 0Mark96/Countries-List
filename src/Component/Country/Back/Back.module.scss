@@ -1,15 +1,19 @@
-.wrapper{
-    width: fit-content;
-    &:hover{
-        transform: scale(1.02);
-    }
+@import '../../../features/mixin.scss';
+
     .btn_cont{
+        display: block;
+        width: fit-content;
         padding: 6px 30px;
         border-radius: 3px;
         background-color: var(--bg-element);
-        box-shadow: 0px 0px 20px -10px var(--shadow);
+        @include element-radius-and-shadow;
         .icon{
             margin-right:10px;
         }
     }
-}
+ 
+    @media (hover:hover){
+        .btn_cont:hover{
+            @include hover-InvertColor
+        }
+    }

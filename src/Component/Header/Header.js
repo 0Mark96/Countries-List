@@ -8,7 +8,7 @@ const Header = () => {
 
     return (
     <header className={header}>
-        <Link to='/' className={logo}>Where in the World?</Link>
+        <Link to='/' onClick={()=>window.scrollTo(0,0)} className={logo}>Where in the World?</Link>
         <div className={div}></div>
         <DarkMode />
     </header>

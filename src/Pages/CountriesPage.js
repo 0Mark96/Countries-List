@@ -2,10 +2,10 @@ import { Suspense } from "react"
 import { Await, useLoaderData } from "react-router-dom"
 //component
 import Countries from "../Component/Countries/Countries"
-import Spinner from "../Component/Spinner/Spinner"
-import Error from "../Component/Error/Error"
+import Spinner from "../Component/Countries/Spinner/Spinner"
+import Error from "../Component/Countries/Error/Error"
 
-const Home = () => {
+const CountriesPage = () => {
   
   const {data} = useLoaderData()
 
@@ -18,4 +18,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default CountriesPage

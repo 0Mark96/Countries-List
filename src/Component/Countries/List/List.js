@@ -8,10 +8,13 @@ const List = ({countries}) => {
 
   return (
     <div className={list_wrapper}>
-      {
+      { 
+      countries?.length > 0 ?
         countries?.map(country => (
           <Card key={country?.name?.common} country={country}/>
-        ))
+          ))
+        : 
+          <h2>No country found!</h2> 
       }
     </div>
   )

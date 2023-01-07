@@ -2,7 +2,7 @@ import { useLoaderData} from "react-router-dom"
 import Country from "../Component/Country/Country"
 
 
-const Details = () => {
+const CountryPage = () => {
 
   const {data} = useLoaderData()
 
@@ -11,4 +11,4 @@ const Details = () => {
   )
 }
 
-export default Details
+export default CountryPage

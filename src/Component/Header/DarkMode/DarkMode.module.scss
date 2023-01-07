@@ -1,3 +1,4 @@
+@import '../../../features/mixin.scss';
 
 .darkMode_btn{
     display: flex;
@@ -14,5 +15,13 @@
 @media screen and (min-width:768px){
     .darkMode_btn{
        font-size: 16px;
+    }
+}
+
+@media (hover:hover){
+    .darkMode_btn:hover{
+        @include hover-InvertColor;
+        padding: 5px 10px;
+        @include element-radius-and-shadow;
     }
 }

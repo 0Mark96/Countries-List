@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Card = ({country}) => {
-    const {card_cont,flag,info,name,info_p} = style
+    const {card_cont,flag,info_wrapper,name,info} = style
 
     const navigate = useNavigate()
     
@@ -17,11 +17,11 @@ const Card = ({country}) => {
         <div className={flag}>
             <img src={country.flags?.png} alt={country.flag}/>
         </div>
-        <div className={info}>
+        <div className={info_wrapper}>
             <h1 className={name}>{country.name?.common}</h1>
-            <p className={info_p}>Population: <span>{country.population.toLocaleString()}</span></p>
-            <p className={info_p}>Region: <span>{country.region}</span></p>
-            <p className={info_p}>Capital: <span>{country.capital}</span></p>
+            <p className={info}><b>Population: </b>{country.population.toLocaleString().replaceAll('.',',')}</p>
+            <p className={info}><b>Region: </b>{country.region}</p>
+            <p className={info}><b>Capital: </b>{country.capital}</p>
         </div>
     </div>
   )

@@ -4,14 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 
 const Back = () => {
-    const {btn_cont,icon,wrapper} = style
+    const {btn_cont,icon} = style
   return (
-    <div className={wrapper}>
     <Link to='/countries' className={btn_cont}>
       <FontAwesomeIcon icon={faArrowLeftLong} className={icon}/>Back
     </Link>
-    </div>
-
   )
 }
 

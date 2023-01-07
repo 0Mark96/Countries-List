@@ -19,10 +19,8 @@
                 &:last-child{
                     margin-bottom: none;
                 }
-                font-weight: 600;
-                span{
-                    font-weight: 300;
-                    opacity: 0.95;
+                b{
+                   font-weight: 600; 
                 }
             }
     
@@ -38,10 +36,11 @@
     }
 }
 
-@media screen and (min-width:992px) {
+@media screen and (min-width:1200px) {
     .details_wrapper > .general_info{
         display: inline-flex;
         justify-content: space-between;
+        max-width: 500px;
         .list{
           &:first-child{
             margin-bottom: 0px;

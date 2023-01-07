@@ -1,18 +1,16 @@
 import { Link } from "react-router-dom"
+import style from './ErrorPage.module.scss'
 
-const ErrorPage = () => {
-    const divStyle = {
-        margin:'0 auto',
-        marginTop:60,
-        width:'fit-content',
-        textAlign:'center',
-        fontSize:35,
-    }
+const ErrorPage = ({object = 'Page'}) => {
+  const {wrapper,home_page_btn} = style
+
   return (
-    <div style={divStyle}>
-        <h1>404</h1>
-        <h2>Page not found</h2>
-        <Link to='/countries'>Home</Link>
+    <div className={wrapper}>
+        {object === 'Page' && <h1>404</h1>}
+        <h2>{object} not found!</h2>
+        <Link to='/countries' className={home_page_btn}>
+          Home Page
+        </Link>
     </div>
   )
 }

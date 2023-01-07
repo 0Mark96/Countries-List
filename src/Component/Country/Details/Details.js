@@ -6,19 +6,32 @@ const Details = ({details}) => {
 
     return (
     <div className={details_wrapper}>
-        <h1 className={name}>{details?.name}</h1>
+        <h1 className={name}>{details.name}</h1>
         <div className={general_info}>
             <ul className={list}>
-                <li>Native Name: <span>{details?.nativeName}</span></li>
-                <li>Population: <span>{details?.population}</span></li>
-                <li>Region: <span>{details?.region}</span></li>
-                <li>Sub Region: <span>{details?.subregion}</span></li>
-                <li>Capital: <span>{details?.capital}</span></li>
+                <li><b>Native Name: </b> {details.nativeName}</li>
+                <li><b>Population: </b> {details.population?.toLocaleString().replace('.', ',')}</li>
+                <li><b>Region: </b> {details.region}</li>
+                <li><b>Sub Region: </b> {details.subregion}</li>
+                <li><b>Capital: </b> {details.capital}</li>
             </ul>
             <ul className={list}>
-                <li>Top Level Domain: <span>{details?.topLevelDomain[0]}</span></li>
-                <li>Currencies: <span>{details?.currencies[0]?.name}</span></li>
-                <li>Languages: <span>{details?.languages.map((lang)=> lang.name + ', ')}</span></li>
+                <li><b>Top Level Domain: </b> {details.topLevelDomain[0]}</li>
+                <li><b>Currencies: </b> 
+                                    {details.currencies?.map(curr => 
+                                            details.currencies?.indexOf(curr) !== details.currencies?.length -1 
+                                            ? curr.name  + ', ' 
+                                            : curr.name )
+                                    }
+                                
+                </li>
+                <li><b>Languages: </b> 
+                               {details.languages?.map(lang => 
+                                            details.languages?.indexOf(lang) !== details.languages?.length -1 
+                                            ? lang.name  + ', ' 
+                                            : lang.name)}
+                                
+                </li>
             </ul>
         </div>
         {details.borders?.length > 0 && 

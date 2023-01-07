@@ -1,0 +1,14 @@
+// color
+
+$white:hsl(0, 0%, 100%);
+$whiteDark:hsl(0, 0%, 98%);
+$gray:hsl(0, 0%, 52%);
+$blue:hsl(209, 23%, 22%);
+$darkBlue:hsl(207, 26%, 17%);
+
+:export{
+    white:$white;
+    whiteDark:$whiteDark;
+    blue:$blue;
+    darkBlue:$darkBlue;
+}

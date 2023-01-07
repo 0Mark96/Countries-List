@@ -1,0 +1,20 @@
+@import '../../../features/mixin';
+
+    .warning{
+        width:fit-content;
+        margin: 0 auto;
+        margin-top:100px;
+      }
+    .btn_callAll{
+        display: block;
+        padding:5px 10px;
+        margin: 40px auto;
+        font-weight:600;
+        @include element-radius-and-shadow;
+        background-color: var(--bg-element);
+    
+        &:hover{
+            @include hover-InvertColor;
+        }
+    }
+
