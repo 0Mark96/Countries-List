@@ -46,7 +46,7 @@ const reducer = (state,action) => {
       }
     case 'ALL_COUNTRIES_RESET':
       return{
-        ...state,
+        loading:false,
         error:false,
         countries:action.payload,
         countriesDisplayed:action.payload,
@@ -63,7 +63,6 @@ const Countries = () => {
   const {data} = useAsyncValue()
 
   const [{countriesDisplayed,loading,error},dispatch] = useReducer(reducer, {...initialState,countries:data,countriesDisplayed:data})
-
 
 
   return (

@@ -11,16 +11,28 @@ const ByRegion = ({dispatch,allCountries}) => {
     const {wrapper,dropdown_btn,dropdown_cont,drop_open} = style
     
    const [dropOpen,setDropOpen] = useState(false)
+   const [value,setValue]=useState()
 
-    // get region country
-    const filterByRegion = (query)=>{
-      dispatch({type:'SET_LOADING'})
-      getRegionCountries(query)
-      .then(data => {
-        dispatch({type:'FETCH_REGION_SUCCESS',payload:data})
-      })
-      .catch(err => dispatch({type:'FETCH_REGION_ERROR'}))
-    }
+  // get region country
+    useEffect(()=>{
+      if(value === undefined){
+          return
+      }
+        dispatch({type:'SET_LOADING'})
+          const time = setTimeout(()=>{
+            if(value !== 'all'){
+              getRegionCountries(value)
+              .then(data => {
+                  dispatch({type:'FETCH_REGION_SUCCESS',payload:data})
+              })
+              .catch(err => dispatch({type:'FETCH_REGION_ERROR'}))
+            }else{
+              dispatch({type:'ALL_COUNTRIES_RESET',payload:allCountries})
+            }
+          },700)
+
+      return ()=> clearTimeout(time)
+    },[allCountries,dispatch,value])
 
     // close dropdown when click outside
     useEffect(() => {
@@ -35,6 +47,7 @@ const ByRegion = ({dispatch,allCountries}) => {
       }
     }, [])
 
+
     //get regions and remove dublicate array
     const regionsArr = [...new Set(allCountries?.map(country => country.region))] 
 
@@ -45,14 +58,14 @@ const ByRegion = ({dispatch,allCountries}) => {
         </button>
         <ul className={classnames(dropdown_cont,{[drop_open]:dropOpen})}>
             <li>
-              <button onClick={()=>{dispatch({type:'ALL_COUNTRIES_RESET',payload:allCountries})}}>
+              <button onClick={()=>setValue('all')}> {/*onClick={()=>{dispatch({type:'ALL_COUNTRIES_RESET',payload:allCountries})}} */}
                 All
               </button>
             </li>
             {
               regionsArr.map(region => (
               <li key={region}>
-                <button onClick={()=>filterByRegion(region.toLowerCase())}>
+                <button onClick={()=>setValue(region.toLowerCase())}>
                   {region}
                 </button>
               </li>

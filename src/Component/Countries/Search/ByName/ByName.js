@@ -1,22 +1,25 @@
 import style from './ByName.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-
+import { useEffect,useState } from 'react'
 
 const ByName = ({dispatch}) => {
     
   const {search_country_cont,search_icon,search_input} = style
+  const [input,setInput]=useState()
   
-  
-  let debounceTime ;   // debounce on user input
-
-  const filterByName = (value) => { 
-      clearTimeout(debounceTime)
-     
-      debounceTime = setTimeout(()=>{
-        dispatch({type:'FILTER_BY_NAME',inputValue:value})
+  useEffect(()=>{
+    if(input === undefined){
+      return
+    }
+      const debounceTime = setTimeout(()=>{
+        dispatch({type:'FILTER_BY_NAME',inputValue:input})
       },400)
-  }
+      return ()=>{
+        clearTimeout(debounceTime)
+      }
+  },[input,dispatch])
+
 
     return (
     <div className={search_country_cont}>
@@ -26,7 +29,7 @@ const ByName = ({dispatch}) => {
         <input type='text'     
                className={search_input}
                placeholder='Search for a country...'
-               onChange={e => filterByName(e.target.value)}
+               onChange={e => setInput(e.target.value)}
                />
     </div>
   )
