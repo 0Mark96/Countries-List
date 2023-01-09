@@ -8,7 +8,7 @@ const ErrorPage = ({object = 'Page'}) => {
     <div className={wrapper}>
         {object === 'Page' && <h1>404</h1>}
         <h2>{object} not found!</h2>
-        <Link to='/countries' className={home_page_btn}>
+        <Link to='/' className={home_page_btn}>
           Home Page
         </Link>
     </div>

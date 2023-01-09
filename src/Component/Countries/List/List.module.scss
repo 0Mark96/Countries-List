@@ -1,10 +1,10 @@
 
 .list_wrapper{
     width:fit-content;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
     gap:30px;
+    margin: 0 auto;
     margin-top: 40px;
 }
 
@@ -17,13 +17,14 @@
 
 @media screen and (min-width:768px){
     .list_wrapper{
-        grid-template-columns: 1fr 1fr 1fr;    
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(205px,1fr));
+        gap: 40px;
     }
 }
 
 @media screen and (min-width:992px){
     .list_wrapper{
-      width: 100%;
       grid-template-columns: repeat(auto-fill, minmax(230px,1fr));
       gap: 60px;
       margin-top: 50px;

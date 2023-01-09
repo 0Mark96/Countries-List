@@ -17,10 +17,7 @@ const router = createBrowserRouter(
              element={<CountriesPage />} 
              loader={getAllCountries}
       />
-      <Route path='/countries'
-             element={<CountriesPage/>} 
-             loader={getAllCountries}
-      />
+
       <Route path="countries/:name" 
              errorElement={<ErrorPage object={'Country'}/>}
              element={<CountryPage />} 

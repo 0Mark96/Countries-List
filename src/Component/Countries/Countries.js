@@ -7,6 +7,12 @@ import List from './List/List'
 import Spinner from './Spinner/Spinner'
 import Error from './Error/Error'
 
+let initialState = {
+  error:false,
+  loading:false,
+  countries:[],
+  countriesDisplayed:[],
+}
 
 const reducer = (state,action) => {
  
@@ -56,14 +62,7 @@ const Countries = () => {
 
   const {data} = useAsyncValue()
 
-  let initialState = {
-    error:false,
-    loading:false,
-    countries:data,
-    countriesDisplayed:data,
-  }
-
-  const [{countriesDisplayed,loading,error},dispatch] = useReducer(reducer, initialState)
+  const [{countriesDisplayed,loading,error},dispatch] = useReducer(reducer, {...initialState,countries:data,countriesDisplayed:data})
 
 
 

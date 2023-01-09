@@ -6,6 +6,7 @@ const CountryPage = () => {
 
   const {data} = useLoaderData()
 
+
   return (
         <Country data={data}/>
   )

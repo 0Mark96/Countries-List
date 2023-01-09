@@ -6,7 +6,7 @@ import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 const Back = () => {
     const {btn_cont,icon} = style
   return (
-    <Link to='/countries' className={btn_cont}>
+    <Link to='/' className={btn_cont}>
       <FontAwesomeIcon icon={faArrowLeftLong} className={icon}/>Back
     </Link>
   )

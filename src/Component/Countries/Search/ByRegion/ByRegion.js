@@ -11,6 +11,7 @@ const ByRegion = ({dispatch,allCountries}) => {
     const {wrapper,dropdown_btn,dropdown_cont,drop_open} = style
     
    const [dropOpen,setDropOpen] = useState(false)
+
     // get region country
     const filterByRegion = (query)=>{
       dispatch({type:'SET_LOADING'})
@@ -20,6 +21,7 @@ const ByRegion = ({dispatch,allCountries}) => {
       })
       .catch(err => dispatch({type:'FETCH_REGION_ERROR'}))
     }
+
     // close dropdown when click outside
     useEffect(() => {
       const closeModal = (e) => {
@@ -42,6 +44,11 @@ const ByRegion = ({dispatch,allCountries}) => {
           Filter by Region <FontAwesomeIcon icon={faAngleDown}/>
         </button>
         <ul className={classnames(dropdown_cont,{[drop_open]:dropOpen})}>
+            <li>
+              <button onClick={()=>{dispatch({type:'ALL_COUNTRIES_RESET',payload:allCountries})}}>
+                All
+              </button>
+            </li>
             {
               regionsArr.map(region => (
               <li key={region}>
