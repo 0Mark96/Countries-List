@@ -4,9 +4,6 @@
     padding: 30px 20px;
     color: var(--text);
     font-size: 14px;
-    .search_wrapper{
-        width: 100%;
-    }
 }
 
 @media screen and (min-width:768px){
@@ -18,11 +15,6 @@
 @media screen and (min-width:992px){
     .main_wrapper{
         padding: 50px 60px;
-        .search_wrapper{
-            width: 100%;
-            display: inline-flex;
-            justify-content: space-between;
-        }
     }
 }
 

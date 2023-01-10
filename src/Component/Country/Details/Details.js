@@ -10,7 +10,7 @@ const Details = ({details}) => {
         <div className={general_info}>
             <ul className={list}>
                 <li><b>Native Name: </b> {details.nativeName}</li>
-                <li><b>Population: </b> {details.population?.toLocaleString().replace('.', ',')}</li>
+                <li><b>Population: </b> {details.population?.toLocaleString().replaceAll('.',',')}</li>
                 <li><b>Region: </b> {details.region}</li>
                 <li><b>Sub Region: </b> {details.subregion}</li>
                 <li><b>Capital: </b> {details.capital}</li>

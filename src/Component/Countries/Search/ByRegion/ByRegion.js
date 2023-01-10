@@ -11,9 +11,9 @@ const ByRegion = ({dispatch,allCountries}) => {
     const {wrapper,dropdown_btn,dropdown_cont,drop_open} = style
     
    const [dropOpen,setDropOpen] = useState(false)
-   const [value,setValue]=useState()
+   const [value,setValue] = useState()
 
-  // get region country
+  // get region countries
     useEffect(()=>{
       if(value === undefined){
           return
@@ -30,7 +30,6 @@ const ByRegion = ({dispatch,allCountries}) => {
               dispatch({type:'ALL_COUNTRIES_RESET',payload:allCountries})
             }
           },700)
-
       return ()=> clearTimeout(time)
     },[allCountries,dispatch,value])
 
@@ -58,7 +57,7 @@ const ByRegion = ({dispatch,allCountries}) => {
         </button>
         <ul className={classnames(dropdown_cont,{[drop_open]:dropOpen})}>
             <li>
-              <button onClick={()=>setValue('all')}> {/*onClick={()=>{dispatch({type:'ALL_COUNTRIES_RESET',payload:allCountries})}} */}
+              <button onClick={()=>setValue('all')}>
                 All
               </button>
             </li>

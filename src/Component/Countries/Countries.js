@@ -15,11 +15,11 @@ let initialState = {
 }
 
 const reducer = (state,action) => {
- 
+
   switch (action.type){
     case 'FETCH_REGION_SUCCESS':
       return {
-        countries:action.payload,
+        countries:action.payload, //dinamic list of countries
         countriesDisplayed:action.payload,
         loading:false,
         error:false,
@@ -35,7 +35,7 @@ const reducer = (state,action) => {
       return{
         ...state,
         countriesDisplayed: state.countries?.filter(country => {
-            return country.name?.common.toLowerCase().includes(action.inputValue.toLowerCase())
+            return country.name?.common.toLowerCase().includes(action.inputValue)
              }),
       }
     case 'SET_LOADING':
@@ -58,24 +58,28 @@ const reducer = (state,action) => {
 }
 
 const Countries = () => {
-  const {main_wrapper,search_wrapper,list_wrapper} = style
+  const {main_wrapper} = style
 
-  const {data} = useAsyncValue()
+  const {data} = useAsyncValue() // all countries data 
 
   const [{countriesDisplayed,loading,error},dispatch] = useReducer(reducer, {...initialState,countries:data,countriesDisplayed:data})
 
 
   return (
     <main className={main_wrapper}>
-        <section className={search_wrapper}>
-            <Search dispatch={dispatch} allCountries={data}/>
-        </section>
-        	
-        <section className={list_wrapper}>
-           { loading && <Spinner /> }
-           { (!loading && !error) && <List countries={countriesDisplayed}/>}
-           {error && <Error data={data} dispatch={dispatch}/>}
-        </section>
+          
+          <Search dispatch={dispatch} allCountries={data}/>
+        
+        { loading && 
+            <Spinner /> 
+        }
+        { (!loading && !error) && 
+            <List countries={countriesDisplayed}/>
+        }
+        {error && 
+            <Error data={data} dispatch={dispatch}/>
+        }
+
     </main>
   )
 }
